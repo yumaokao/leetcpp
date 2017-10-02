@@ -27,5 +27,6 @@ add_executable(ans-19 answers/19/ans.cpp)
 add_executable(ans-20 answers/20/ans.cpp)
 add_executable(ans-21 answers/21/ans.cpp)
 add_executable(ans-22 answers/22/ans.cpp)
+add_executable(ans-26 answers/26/ans.cpp)
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
