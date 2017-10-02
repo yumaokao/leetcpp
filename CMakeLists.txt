@@ -12,6 +12,7 @@ add_definitions("-std=c++11")
 ## problems
 add_executable(ans-1 answers/1/ans.cpp)
 add_executable(ans-2 answers/2/ans.cpp)
+add_executable(ans-3 answers/3/ans.cpp)
 add_executable(ans-14 answers/14/ans.cpp)
 add_executable(ans-15 answers/15/ans.cpp)
 add_executable(ans-17 answers/17/ans.cpp)
