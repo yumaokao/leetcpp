@@ -17,13 +17,14 @@ class Solution {
             }
 
             results.push_back("");
-            vector<string> maps = {" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+            const vector<string> maps = {" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
             for (char c: digits) {
                 vector<string> nr;
                 for (auto r: results) {
                     for (auto m: maps[c - '0'])
                         nr.push_back(r + m);
                 }
+                results.swap(nr);
             }
             return results;
         }
