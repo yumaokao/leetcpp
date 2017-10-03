@@ -20,21 +20,26 @@ public:
             return dividend;
         if (divisor == -1)
             return (dividend == INT_MIN) ? INT_MAX : -dividend;
-        if (dividend == INT_MIN)
-            dividend = INT_MAX;
 
-        cout << dividend << endl;
-        cout << divisor << endl;
-        dividend = (dividend > 0) ? dividend : -dividend;
-        divisor = (divisor > 0) ? divisor : -divisor;
-        cout << dividend << endl;
-        cout << divisor << endl;
+        dividend = (dividend < 0) ? dividend : -dividend;
+        divisor = (divisor < 0) ? divisor : -divisor;
+        // cout << dividend << endl;
+        // cout << divisor << endl;
         int d = 0;
-        while (dividend >= divisor) {
-            dividend -= divisor;
-            d++;
+        while (dividend <= divisor) {
+            int ntimes = 1;
+            int ndivs = divisor;
+            while (dividend <= ndivs && ndivs < 0) {
+                // cout << ndivs << endl;
+                dividend -= ndivs;
+                d += ntimes;
+                ndivs = ndivs << 1;
+                ntimes = ntimes << 1;
+            }
+            /* dividend -= ndivs;
+            d += ntimes; */
         }
-    	return (isminus) ? -d : d; 
+        return (isminus) ? -d : d;
     }
 };
 
@@ -42,7 +47,6 @@ int main() {
     Solution s;
 	int ans;
 
-#if 0
 	ans = s.divide(1, 1);
 	cout << 1 << "/" << 1 << " = " << ans << endl;
 
@@ -62,7 +66,7 @@ int main() {
 	cout << 1 << "/" << 0 << " = " << ans << endl;
 
 	ans = s.divide(-1, 0);
-	cout << 1 << "/" << 0 << " = " << ans << endl;
+	cout << -1 << "/" << 0 << " = " << ans << endl;
 
 	ans = s.divide(-1, 1);
 	cout << -1 << "/" << 1 << " = " << ans << endl;
@@ -93,11 +97,26 @@ int main() {
 
 	ans = s.divide(INT_MIN, 2);
 	cout << INT_MIN << "/" << 2 << " = " << ans << endl;
+
+#if 0
+    cout << ((INT_MIN) << 1 ) << endl;
+    cout << ((INT_MIN / 2) << 1 ) << endl;
+    cout << ((INT_MIN) << 2 ) << endl;
+    cout << ((INT_MIN / 2) << 2 ) << endl;
+    cout << ((INT_MAX) << 1 ) << endl;
 #endif
 
 	ans = s.divide(INT_MIN, INT_MIN);
 	cout << INT_MIN << "/" << INT_MIN << " = " << ans << endl;
 
+	ans = s.divide(INT_MAX, INT_MAX);
+	cout << INT_MAX << "/" << INT_MAX << " = " << ans << endl;
+
+	ans = s.divide(INT_MAX, INT_MIN);
+	cout << INT_MAX << "/" << INT_MIN << " = " << ans << endl;
+
+	ans = s.divide(INT_MIN, INT_MAX);
+	cout << INT_MIN << "/" << INT_MAX << " = " << ans << endl;
 
     return 0;
 }
