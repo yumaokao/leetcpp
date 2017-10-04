@@ -18,6 +18,7 @@ public:
                 }
             }
         }
+        return results;
     }
 };
 
@@ -28,4 +29,5 @@ int main() {
     vector<int> r = s.twoSum(inputs, t);
 	for (auto i: r)
     	cout << i << endl;
+    return 0;
 }

@@ -47,7 +47,7 @@ class Solution {
         }
 };
 
-int showAns(vector<vector<int> >& ans) {
+void showAns(vector<vector<int> >& ans) {
     cout << "Ans" << endl;
     for (int i = 0; i < ans.size(); i++) {
         for (auto j: ans[i])
@@ -87,4 +87,6 @@ int main() {
     nums = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
     ans = Solution().threeSum(nums);
     showAns(ans);
+
+    return 0;
 }

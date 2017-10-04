@@ -30,7 +30,7 @@ class Solution {
         }
 };
 
-int showAns(string& digits, vector<string>& ans) {
+void showAns(string& digits, vector<string>& ans) {
     cout << "Answer for [" << digits << "]" << endl;
     for (int i = 0; i < ans.size(); i++) {
         cout << " " << i << " [" << ans[i] << "]" << endl;
@@ -49,4 +49,5 @@ int main() {
     digits = "";
     ans = s.letterCombinations(digits);
     showAns(digits, ans);
+    return 0;
 }
