@@ -23,6 +23,8 @@ public:
             return isMatch(s.substr(1, s.size() - 1), p);
 
         if (c == '*') {
+            while (p.size() > 1 && p[0] == c)
+                p = p.substr(1, p.size() - 1);
             if (p.empty())
                 return true;
             for (int i = 0; i < s.size(); i++)
@@ -132,6 +134,11 @@ int main() {
 
 	s = "";
 	p = "**";
+	ans = sol.isMatch(s, p);
+	showAns(s, p, ans);
+
+    s = "aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba";
+    p = "a*******b";
 	ans = sol.isMatch(s, p);
 	showAns(s, p, ans);
 
