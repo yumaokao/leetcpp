@@ -6,6 +6,7 @@
 
 using namespace std;
 
+#if 0
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -33,6 +34,32 @@ public:
             // cout << "h " << h << " -> r " << r << endl;
         }
 		return r; 
+    }
+};
+#endif
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int r = 0;
+
+        int i = 0;
+        int j = height.size() - 1;
+        if (height.empty())
+            return 0;
+
+        int l = min(height[i], height[j]);
+        while (i < j) {
+            int lower = height[j];
+            if (height[i] < height[j]) {
+                lower = height[i];
+                i++;
+            } else
+                j--;
+            l = max(l, lower);
+            r += l - lower;
+        }
+		return r;
     }
 };
 
@@ -77,6 +104,10 @@ int main() {
 	showAns(height, ans);
 
 	height = {0, -3, 0};
+	ans = s.trap(height);
+	showAns(height, ans);
+
+	height = {-1, -3, -1};
 	ans = s.trap(height);
 	showAns(height, ans);
 
