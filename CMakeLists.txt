@@ -37,5 +37,6 @@ add_executable(ans-38 answers/38/ans.cpp)       # 38. Count and Say
 add_executable(ans-41 answers/41/ans.cpp)       # 41. First Missing Positive
 add_executable(ans-42 answers/42/ans.cpp)       # 42. Trapping Rain Water
 add_executable(ans-44 answers/44/ans.cpp)       # 44. Wildcard Matching (TLE)
+add_executable(ans-46 answers/46/ans.cpp)       # 46. Permutations
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
