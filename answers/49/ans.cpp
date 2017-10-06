@@ -3,9 +3,32 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <set>
+#include <algorithm>
 
 using namespace std;
 
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> r;
+        unordered_map<string, multiset<string>> umap;
+        for (auto s: strs) {
+            string t = s;
+            sort(t.begin(), t.end());
+            umap[t].insert(s);
+        }
+        for (auto m: umap) {
+            vector<string> ar;
+            for (auto s: m.second)
+                ar.push_back(s);
+            r.push_back(ar);
+        }
+        return r;
+    }
+};
+
+#if 0
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
@@ -18,17 +41,21 @@ public:
 				unordered_map<char, int> lm;
 				lm = umap[i];	
 				for (auto c: s) {
-					if (lm.find(c) == lm.end() || lm[c] == 0) {
+					if (lm.find(c) == lm.end()) {
 						match = false;
 						break;
 					}
 					lm[c] = lm[c] - 1;
+                    if (lm[c] == 0)
+                        lm.erase(c);
 				}
-				for (auto m: lm) {
+				/* for (auto m: lm) {
 					// cout << m.first << " " << m.second << endl;
 					if (m.second > 0)
 						match = false;
-				}
+				} */
+                if (lm.size() > 0)
+                    match = false;
 				if (match) {
 					r[i].push_back(s);
 					break;
@@ -52,6 +79,7 @@ public:
 		return r;
     }
 };
+#endif
 
 void showAns(vector<string>& strs, vector<vector<string>>& ans) {
 	cout << "[";
