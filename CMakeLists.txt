@@ -38,5 +38,6 @@ add_executable(ans-41 answers/41/ans.cpp)       # 41. First Missing Positive
 add_executable(ans-42 answers/42/ans.cpp)       # 42. Trapping Rain Water
 add_executable(ans-44 answers/44/ans.cpp)       # 44. Wildcard Matching (TLE)
 add_executable(ans-46 answers/46/ans.cpp)       # 46. Permutations
+add_executable(ans-48 answers/48/ans.cpp)       # 48. Rotate Image
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
