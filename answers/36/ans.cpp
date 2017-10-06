@@ -23,7 +23,6 @@ public:
     }
 
     bool isValidSudoku(vector<vector<char>>& board) {
-        bool isValid = true;
         for (auto n: board) {
             if (isValidNine(n) == false)
                 return false;
@@ -32,28 +31,30 @@ public:
         vector<char> c(9);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                int mi = (i / 3) * 3 + (j / 3);
-                int mj = (i % 3) * 3 + (j % 3);
-                c[j] = board[mi][mj];
+                c[j] = board[j][i];
             }
             if (isValidNine(c) == false)
                 return false;
         }
+
         for (int i = 0; i < 9; i++) {
+            int row = (i / 3) * 3;
+            int col = (i % 3) * 3;
             for (int j = 0; j < 9; j++) {
-                int mi = (j / 3) * 3 + (i % 3);
-                int mj = (j % 3) * 3 + (i % 3);
-                c[j] = board[mi][mj];
+                int rr = row + (j / 3);
+                int cc = col + (j % 3);
+                char ac = board[rr][cc];
+                c[j] = board[rr][cc];
             }
-            /* cout << " i " << i << ":";
+            /* cout << "i " << i << " ";
             for (auto ac: c)
-                cout << " " << ac;
+                cout << ac;
             cout << endl; */
             if (isValidNine(c) == false)
                 return false;
         }
 
-		return isValid; 
+		return true;
     }
 };
 
@@ -69,25 +70,12 @@ vector<vector<char>> convert(vector<string>& board) {
 }
 
 void showAns(vector<vector<char>>& board, bool ans) {
-    /*
-     00 01 02 10 11 12 20 21 22 
-     03 04 05 13 14 15 23 24 25
-     06 07 08 16 17 18 26 27 28
-     30
-     33
-     36
-     60
-     */
     cout << "board " << endl;
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-            int mi = (i / 3) * 3 + (j / 3);
-            int mj = (i % 3) * 3 + (j % 3);
-            // cout << "i " << i << " j " << j;
-            // cout << "-> mi " << mi << " mj " << mj << endl;
             if (j % 3 == 0)
                 cout << " ";
-            cout << board[mi][mj];
+            cout << board[i][j];
         }
         cout << endl;
         if ((i + 1) % 3 == 0)
