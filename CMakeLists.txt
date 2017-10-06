@@ -41,5 +41,6 @@ add_executable(ans-46 answers/46/ans.cpp)       # 46. Permutations
 add_executable(ans-48 answers/48/ans.cpp)       # 48. Rotate Image
 add_executable(ans-49 answers/49/ans.cpp)       # 49. Group Anagrams
 add_executable(ans-50 answers/50/ans.cpp)       # 50. Pow(x, n)
+add_executable(ans-53 answers/53/ans.cpp)       # 53. Maximum Subarray
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai

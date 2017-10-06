@@ -120,5 +120,7 @@ int main() {
 	ans = s.myPow(x, n);
 	showAns(x, n, ans);
 
+	// cout << (1 << 1) << endl;
+	// cout << (-1 << 1) << endl;
     return 0;
 }
