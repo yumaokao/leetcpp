@@ -33,5 +33,6 @@ add_executable(ans-29 answers/29/ans.cpp)
 add_executable(ans-33 answers/33/ans.cpp)
 add_executable(ans-34 answers/34/ans.cpp)
 add_executable(ans-36 answers/36/ans.cpp)
+add_executable(ans-38 answers/38/ans.cpp)
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
