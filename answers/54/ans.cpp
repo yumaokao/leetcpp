@@ -19,14 +19,6 @@ public:
         if (cols == 0)
             return results;
 
-        if (rows == 1)
-            return matrix[0];
-        if (cols == 1) {
-            for (auto m: matrix)
-                results.push_back(m[0]);
-            return results;
-        }
-
         int d = 0;
         while (cols > 2 * d && rows > 2 * d) {
             int cs = d;
@@ -34,6 +26,17 @@ public:
             int rs = d;
             int re = rows - d;
             // cout << "cs " << cs << " ce " << ce << " rs " << rs << " re " << re << endl;
+            if (rs == re - 1) {
+                for (int i = cs; i < ce ; i++)
+                    results.push_back(matrix[rs][i]);
+                break;
+            }
+            if (cs == ce - 1) {
+                for (int j = rs; j < re ; j++)
+                    results.push_back(matrix[j][cs]);
+                break;
+            }
+
             for (int i = cs; i < ce - 1; i++)
                 results.push_back(matrix[rs][i]);
             for (int j = rs; j < re - 1; j++)
@@ -44,8 +47,6 @@ public:
                 results.push_back(matrix[j][cs]);
             d++;
         }
-        if (cols == rows && (rows % 2) == 1)
-            results.push_back(matrix[rows / 2][cols / 2]);
 		return results;
     }
 };
@@ -144,6 +145,22 @@ int main() {
     matrix.clear();
 	matrix.push_back({1, 2});
 	matrix.push_back({3, 4});
+	ans = s.spiralOrder(matrix);
+	showAns(matrix, ans);
+
+    matrix.clear();
+	matrix.push_back({1, 2, 3, 4, 5});
+	matrix.push_back({6, 7, 8, 9, 10});
+	matrix.push_back({11, 12, 13, 14, 15});
+	ans = s.spiralOrder(matrix);
+	showAns(matrix, ans);
+
+    matrix.clear();
+	matrix.push_back({1, 2, 3});
+	matrix.push_back({4, 5, 6});
+	matrix.push_back({7, 8, 9});
+	matrix.push_back({10, 11, 12});
+	matrix.push_back({13, 14, 15});
 	ans = s.spiralOrder(matrix);
 	showAns(matrix, ans);
 
