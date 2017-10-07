@@ -45,5 +45,6 @@ add_executable(ans-53 answers/53/ans.cpp)       # 53. Maximum Subarray
 add_executable(ans-54 answers/54/ans.cpp)       # 54. Spiral Matrix
 add_executable(ans-55 answers/55/ans.cpp)       # 55. Jump Game
 add_executable(ans-56 answers/56/ans.cpp)       # 56. Merge Intervals
+add_executable(ans-62 answers/62/ans.cpp)       # 62. Unique Paths
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
