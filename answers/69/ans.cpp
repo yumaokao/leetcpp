@@ -12,10 +12,19 @@ class Solution {
 public:
     int mySqrt(int x) {
         int t = x;
-        while (t > 100) {
-            t / 100;
+        while (t > 99) {
+            t /= 100;
         };
-        cout << t << endl;;
+
+        int up = 0;
+        for (int i = 1; i < 11; i++) {
+            if (t > (i * i) - 1) {
+                up = i;
+                break;
+            }
+        }
+        cout << "t " << t << " up " << up << endl;;
+
         return 0;
     }
 };
@@ -34,6 +43,14 @@ int main() {
 	showAns(x, ans);
 
 	x = 99;
+	ans = s.mySqrt(x);
+	showAns(x, ans);
+
+	x = 100;
+	ans = s.mySqrt(x);
+	showAns(x, ans);
+
+	x = 9999;
 	ans = s.mySqrt(x);
 	showAns(x, ans);
 
