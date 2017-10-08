@@ -13,9 +13,9 @@ public:
     int uniquePaths(int m, int n) {
         int cols = max(m, n);
         int rows = min(m, n);
-        int a[cols] = { 0 };
+        vector<int> a;
         for (int i = 0; i < cols; i++)
-            a[i] = 1;
+            a.push_back(1);
         for (int j = 1; j < rows; j++) {
             int l = a[0];
             for (int i = 1; i < cols; i++) {
