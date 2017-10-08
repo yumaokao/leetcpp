@@ -11,6 +11,11 @@ using namespace std;
 class Solution {
 public:
     int mySqrt(int x) {
+        int t = x;
+        while (t > 100) {
+            t / 100;
+        };
+        cout << t << endl;;
         return 0;
     }
 };
@@ -25,6 +30,10 @@ int main() {
 	int ans;
 
 	x = 0;
+	ans = s.mySqrt(x);
+	showAns(x, ans);
+
+	x = 99;
 	ans = s.mySqrt(x);
 	showAns(x, ans);
 
