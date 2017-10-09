@@ -48,6 +48,6 @@ add_executable(ans-56 answers/56/ans.cpp)       # 56. Merge Intervals
 add_executable(ans-62 answers/62/ans.cpp)       # 62. Unique Paths
 add_executable(ans-66 answers/66/ans.cpp)       # 66. Plus One
 add_executable(ans-69 answers/69/ans.cpp)       # 69. Sqrt(x)
-add_executable(ans-70 answers/70/ans.cpp)       # 70. Climbing Stairs (TEST)
+add_executable(ans-70 answers/70/ans.cpp)       # 70. Climbing Stairs (TLE)
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
