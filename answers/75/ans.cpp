@@ -30,10 +30,7 @@ public:
                 i++;
             }
         }
-
-        // nums[r++] = 0;
         return;
-        
     }
 };
 
