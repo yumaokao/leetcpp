@@ -20,8 +20,10 @@ public:
             }
             tmap[c]  = tmap[c] + 1;
         }
-        for (auto& m: tmap)
-            cout << m.first << " " << m.second << endl;
+        /* for (auto& m: tmap)
+            cout << m.first << " " << m.second << endl; */
+        if (s.empty() || t.empty())
+            return "";
 
         int min = INT_MAX;
         int min_i = 0;
@@ -29,10 +31,10 @@ public:
         int i = -1;
         int j = 0;
         while (j < s.size() || get == t.size()) {
-            cout << "i " << i << " j " << j << " get " << get << endl;
+            // cout << "i " << i << " j " << j << " get " << get << endl;
             if (get == t.size()) {
                 i++;
-                cout << "i " << i << " j " << j << endl;
+                // cout << "i " << i << " j " << j << endl;
                 if (min > (j - i)) {
                     min = j - i ;
                     min_i = i;
@@ -57,7 +59,7 @@ public:
             }
         }
 
-        cout << "min_i " << min_i << " min " << min << endl;
+        // cout << "min_i " << min_i << " min " << min << endl;
         return (min == INT_MAX) ? "" : s.substr(min_i, min);
     }
 };
@@ -71,6 +73,21 @@ int main() {
 	string s;
 	string t;
 	string ans;
+
+    s = "";
+    t = "";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
+
+    s = "";
+    t = "a";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
+
+    s = "a";
+    t = "";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
 
     s = "a";
     t = "a";
@@ -99,6 +116,21 @@ int main() {
 
     s = "ADOBECODEBANC";
     t = "BD";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
+
+    s = "ADOBECODEBANC";
+    t = "AO";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
+
+    s = "ADOBECODEBANC";
+    t = "ADOBECODEBANC";
+	ans = sol.minWindow(s, t);
+	showAns(s, t, ans);
+
+    s = "ADOBECODEBANC";
+    t = "F";
 	ans = sol.minWindow(s, t);
 	showAns(s, t, ans);
 

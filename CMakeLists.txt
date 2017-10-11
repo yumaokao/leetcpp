@@ -51,7 +51,7 @@ add_executable(ans-69 answers/69/ans.cpp)       # 69. Sqrt(x)
 add_executable(ans-70 answers/70/ans.cpp)       # 70. Climbing Stairs
 add_executable(ans-73 answers/73/ans.cpp)       # 73. Set Matrix Zeroes
 add_executable(ans-75 answers/75/ans.cpp)       # 75. Sort Colors
-add_executable(ans-76 answers/76/ans.cpp)       # 76. Minimum Window Substring (TEST)
+add_executable(ans-76 answers/76/ans.cpp)       # 76. Minimum Window Substring
 add_executable(ans-78 answers/78/ans.cpp)       # 78. Subsets (TEST)
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
