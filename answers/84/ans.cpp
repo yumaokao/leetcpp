@@ -21,16 +21,23 @@ public:
                 if (heights[l] < h) {
                     lefts[i] = l;
                     break;
-                } else
-                    lefts[i] = lefts[l--];
+                } else {
+                    lefts[i] = lefts[l];
+                    l = lefts[l];
+                }
             }
+        }
+        for (int i = heights.size() - 1; i > -1; i--) {
+            int h = heights[i];
             int r = i + 1;
             while (r < heights.size()) {
                 if (heights[r] < h) {
                     rights[i] = r;
                     break;
-                } else
-                    rights[i] = rights[r++];
+                } else {
+                    rights[i] = rights[r];
+                    r = rights[r];
+                }
             }
         }
         int largest = 0;
