@@ -55,6 +55,6 @@ add_executable(ans-76 answers/76/ans.cpp)       # 76. Minimum Window Substring
 add_executable(ans-78 answers/78/ans.cpp)       # 78. Subsets
 add_executable(ans-79 answers/79/ans.cpp)       # 79. Word Search
 add_executable(ans-84 answers/84/ans.cpp)       # 84. Largest Rectangle in Histogram
-add_executable(ans-88 answers/88/ans.cpp)       # 88. Merge Sorted Array (TEST)
+add_executable(ans-88 answers/88/ans.cpp)       # 88. Merge Sorted Array
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
