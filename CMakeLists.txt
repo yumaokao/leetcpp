@@ -58,5 +58,6 @@ add_executable(ans-84 answers/84/ans.cpp)       # 84. Largest Rectangle in Histo
 add_executable(ans-88 answers/88/ans.cpp)       # 88. Merge Sorted Array
 add_executable(ans-91 answers/91/ans.cpp)       # 91. Decode Ways
 add_executable(ans-94 answers/94/ans.cpp)       # 94. Binary Tree Inorder Traversal
+add_executable(ans-98 answers/98/ans.cpp)       # 98. Validate Binary Search Tree (TEST)
 
 # vim:fileencoding=UTF-8:ts=4:sw=4:sta:et:sts=4:ai
