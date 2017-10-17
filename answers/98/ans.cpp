@@ -2,6 +2,7 @@
 #include <climits>
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -51,7 +52,35 @@ public:
     }
 };
 
+void showTree(TreeNode* root) {
+    if (root == NULL)
+        return;
+    queue<TreeNode*> q;
+    queue<TreeNode*> nq;
+    q.push(root);
+    if (root->left)
+        nq.push(root->left);
+    if (root->right)
+        nq.push(root->right);
+    cout << "[" << root->val << "]" << endl;
+    while(nq.size() > 0) {
+        q = nq;
+        nq = {};
+        while(!q.empty()) {
+            TreeNode* n = q.front();
+            cout << " [" << n->val << "]";
+            if (n->left)
+                nq.push(n->left);
+            if (n->right)
+                nq.push(n->right);
+            q.pop();
+        }
+        cout << endl;
+    }
+}
+
 void showAns(TreeNode* root, bool ans) {
+    showTree(root);
 	cout << "isBST -> " << ((ans) ? "Yes" : "No") << endl;
 }
 
