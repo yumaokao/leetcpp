@@ -27,6 +27,7 @@ add_executable(ans-19 answers/19/ans.cpp)       # 19. Remove Nth Node From End o
 add_executable(ans-20 answers/20/ans.cpp)       # 20. Valid Parentheses
 add_executable(ans-21 answers/21/ans.cpp)       # 21. Merge Two Sorted Lists
 add_executable(ans-22 answers/22/ans.cpp)       # 22. Generate Parentheses
+add_executable(ans-23 answers/23/ans.cpp)       # 23. Merge k Sorted Lists (TEST)
 add_executable(ans-26 answers/26/ans.cpp)       # 26. Remove Duplicates from Sorted Array 
 add_executable(ans-28 answers/28/ans.cpp)       # 28. Implement strStr()
 add_executable(ans-29 answers/29/ans.cpp)       # 29. Divide Two Integers
