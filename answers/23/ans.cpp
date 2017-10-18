@@ -25,22 +25,68 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         if (lists.empty())
-       	    return NULL; 
+            return NULL;
         if (lists.size() == 1)
             return lists[0];
         ListNode* head = new ListNode(-1);  // dummy head
 
         ListNode* mins = new ListNode(-1);
-        /* ListNode* cur = mins;
         for (int i = 0; i < lists.size(); i++) {
-            cur->next = new ListNode            
+            if (mins->next == NULL) {
+                mins->next = new ListNode(i);
+                continue;
+            }
+            ListNode* cur = mins;
+            while (cur->next) {
+                if (lists[i]->val < lists[cur->next->val]->val) {
+                    ListNode* nn = new ListNode(i);
+                    nn->next = cur->next;
+                    cur->next = nn;
+                    break;
+                }
+                cur = cur->next;
+            }
+            if (cur->next == NULL)
+                cur->next = new ListNode(i);
+        }
+        /* ListNode* cur = mins;
+        while (cur->next) {
+            cout << " i " << cur->next->val << " val " << lists[cur->next->val]->val << endl;
+            cur = cur->next;
         } */
-        
+        ListNode* csort = head;
+        while (mins->next) {
+            int midx = mins->next->val;
+            csort->next = lists[midx];
+            lists[midx] = lists[midx]->next;
+            csort->next->next = NULL;
+            ListNode* drop = mins->next;
+            mins->next = drop->next;
+            delete drop;
+
+            if (lists[midx]) {
+                ListNode* cur = mins;
+                while (cur->next) {
+                    if (lists[midx]->val < lists[cur->next->val]->val) {
+                        ListNode* nn = new ListNode(midx);
+                        nn->next = cur->next;
+                        cur->next = nn;
+                        break;
+                    }
+                    cur = cur->next;
+                }
+                if (cur->next == NULL)
+                    cur->next = new ListNode(midx);
+            }
+
+            csort = csort->next;
+        }
+
         return head->next;
     }
 };
 
-void showAns(vector<ListNode*>& lists, ListNode* ans) {
+void showLists(vector<ListNode*>& lists) {
     for (auto l: lists) {
         cout << "[";
         ListNode* n = l;
@@ -50,6 +96,9 @@ void showAns(vector<ListNode*>& lists, ListNode* ans) {
         }
         cout << " ]" << endl;
     }
+}
+
+void showAns(vector<ListNode*>& lists, ListNode* ans) {
 	cout << " -> [";
     while (ans) {
         cout << " " << ans->val;
@@ -62,7 +111,7 @@ int main() {
     Solution s;
 	ListNode* ans;
 	vector<ListNode*> lists;
-	
+
 	ListNode* head;
 
 	head = new ListNode(1);
@@ -71,6 +120,7 @@ int main() {
 	head = new ListNode(2);
 	head->next = new ListNode(4);
 	lists.push_back(head);
+	showLists(lists);
 	ans = s.mergeKLists(lists);
 	showAns(lists, ans);
 
